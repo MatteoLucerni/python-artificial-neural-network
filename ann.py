@@ -119,8 +119,9 @@ num_wrong_predictions = len(wrong_predictions)
 max_errors_to_show = min(25, num_wrong_predictions)
 
 if num_wrong_predictions == 0:
-    print("Nessuna predizione sbagliata.")
+    print("No wrong predictions")
 else:
+    print("Number of wrong predictions: " + str(num_wrong_predictions))
     cols = 5
     rows = int(np.ceil(max_errors_to_show / cols))
 
