@@ -114,7 +114,7 @@ print('=' * 100)
 wrong_predictions = [i for i in range(len(Y_test)) if Y_test[i] != Y_pred[i]]
 num_wrong_predictions = len(wrong_predictions)
 
-# limito le immagini
+# limit number of images
 max_errors_to_show = min(25, num_wrong_predictions)
 
 if num_wrong_predictions == 0:
