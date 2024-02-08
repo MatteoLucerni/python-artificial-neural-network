@@ -111,4 +111,27 @@ print(f'TRAIN - Acc: {acc_train} / Loss: {lloss_train}')
 
 print('=' * 100)
 
-# print wrong predictions
+wrong_predictions = [i for i in range(len(Y_test)) if Y_test[i] != Y_pred[i]]
+num_wrong_predictions = len(wrong_predictions)
+
+# limito le immagini
+max_errors_to_show = min(25, num_wrong_predictions)
+
+if num_wrong_predictions == 0:
+    print("Nessuna predizione sbagliata.")
+else:
+    cols = 5
+    rows = int(np.ceil(max_errors_to_show / cols))
+
+    plt.figure(figsize=(2*cols, 2*rows))
+
+    for index in range(max_errors_to_show):
+        wrong_index = wrong_predictions[index]
+        image = X_test[wrong_index].reshape(28, 28)
+        plt.subplot(rows, cols, index + 1)
+        plt.imshow(image, cmap='gray')
+        plt.title(f'True: {Y_test[wrong_index]}, Pred: {Y_pred[wrong_index]}')
+        plt.axis('off')
+
+    plt.tight_layout()
+    plt.show()
