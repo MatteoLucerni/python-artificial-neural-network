@@ -38,6 +38,7 @@ X_train, X_test, Y_train, Y_test = load_mnist(path="MNIST")
 print("Proprietà: " + str(X_train.shape[1]))
 print("Test: " + str(X_test.shape[0]))
 print("Training: " + str(X_train.shape[0]))
+print("Total pixels to guess: " +  str(X_train.shape[1] * X_test.shape[0]))
 
 mms = MinMaxScaler()
 X_train = mms.fit_transform(X_train)
